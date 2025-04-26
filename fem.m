@@ -80,3 +80,14 @@ for gp = 1:4
 
     fprintf('GP %d: [%.2f, %.2f, %.2f]\n', gp, stress(1), stress(2), stress(3));
 end
+
+figure;
+hold on; axis equal;
+node_labels = {'1','2','3','4'};
+for i = 1:4
+    plot(nodes(i,1), nodes(i,2), 'ko', 'MarkerSize', 8, 'LineWidth', 2);
+    text(nodes(i,1)+0.05, nodes(i,2), node_labels{i}, 'FontSize', 12, 'Color', 'r');
+end
+fill(nodes([1 2 3 4 1],1), nodes([1 2 3 4 1],2), 'cyan', 'FaceAlpha', 0.3);
+title('4-Node Q4 Element Mesh');
+xlabel('X'); ylabel('Y');
